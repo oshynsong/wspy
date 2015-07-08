@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>HTML5 websocket</title>
+</head>
+<body>
+    <h1>websocket</h1>
+    <button id='btnws'>WS open</button>
+</body>
+<script type="text/javascript">
+    var url = "ws://127.0.0.1:5005";
+    //var url = "ws://localhost:8888";
+    var b = document.getElementById('btnws')
+    b.addEventListener('click', wsClick, false)
+    
+    function wsClick(){
+        ws = new WebSocket(url);
+    
+    ws.onopen = function(){
+        console.log("Handshake success, websocket opened...");
+        ws.send('test');
+    };
+    ws.onclose = function(){
+        console.log("Close the websocket connection.");
+    };
+    ws.onerror = function(e){
+        console.log("ERROR:" + e.data);
+    };
+    
+    ws.onmessage = function(e){
+        var msg = e.data;
+        console.log("message:" + msg);
+    }
+    }
+</script>
+</html>
