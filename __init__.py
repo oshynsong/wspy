@@ -13,7 +13,3 @@ __copyright__ = 'Copyright 2015 <dualyangsong@gmail.com>'
 
 __all__ = ['server', 'util', 'exceptions']
 
-
-
-#+------------------------------------+
-#+------------------------------------+
